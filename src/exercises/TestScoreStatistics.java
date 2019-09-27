@@ -12,7 +12,7 @@ public class TestScoreStatistics{
         int count = 0;
         int high = 0;
         int low = 100;
-        int average;
+        int average = 0;
         int total = 0;
 
         while(userEntry != 999){
@@ -31,12 +31,19 @@ public class TestScoreStatistics{
                 total = total + userEntry;
                 ++count;
             }
+            else if(userEntry >= low && userEntry <= high) {
+                ++count;
+                total = total + userEntry;
+            }
+            else if(userEntry == 999)
+                System.out.println("Ending Loop; Printing results >>>>");
             else
                 System.out.println("Error.");
 
             average = total / count;
 
         }
-        System.out.println();
+        System.out.println("Number of entries: " + count + "\nHighest score: " + high + "\nLowest score: " + low +
+                "\nAverage score: " + average);
     }
 }
